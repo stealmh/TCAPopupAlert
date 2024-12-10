@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-
+/// PopupAlertState -> PopupAlert 매핑
 extension PopupAlertState {
+    /// - `footerButton`만 존재할 때
     public func converted(
         send: @escaping (Action) -> Void,
         animation: @escaping (Action, Animation?) -> Void
@@ -18,7 +19,7 @@ extension PopupAlertState {
             footerButton: self.footerButton.map { $0.converted(send: send, animation: animation) }
         )
     }
-    
+    /// - `leadingButton`, `trailingButton`이 존재할 때
     public func twoButtonConverted(
         send: @escaping (Action) -> Void,
         animation: @escaping (Action, Animation?) -> Void
@@ -30,8 +31,18 @@ extension PopupAlertState {
             trailingButton: self.trailingButton.map { $0.converted(send: send, animation: animation) }
         )
     }
+    
+    public func noButtonConverted(
+        send: @escaping (Action) -> Void,
+        animation: @escaping (Action, Animation?) -> Void
+    ) -> PopupAlert {
+        .init(
+            title: self.title.map { Text($0) },
+            message: self.message.map { Text($0) }
+        )
+    }
 }
-
+/// `PopupAlertState`의 `Button` -> `PopupAlert`의 `Button`으로 매핑
 extension PopupAlertState.Button {
     fileprivate func converted(
         send: @escaping (Action) -> Void,

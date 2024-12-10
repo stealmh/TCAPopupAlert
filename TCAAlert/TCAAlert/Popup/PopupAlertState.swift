@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
+/// PopupAlert을 TCA에서 사용할 수 있게 래핑한 구조체
 public struct PopupAlertState<Action: Equatable>: Equatable {
     public var message: TextState?
     public var title: TextState?
@@ -15,6 +16,7 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
     public var trailingButton: Button?
     public var footerButton: Button?
     
+    /// - `button`이 `1개`일 때 사용하는 initalizer
     public init(
         title: TextState? = nil,
         message: TextState? = nil,
@@ -24,17 +26,15 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
         self.message = message
         self.title = title
     }
-    
+    /// - `button`이 `2개`일 때 사용하는 initalizer
     public init(
         title: TextState? = nil,
         message: TextState? = nil,
         leadingButton: Button? = nil,
-        trailingButton: Button? = nil,
-        footerButton: Button? = nil
+        trailingButton: Button? = nil
     ) {
         self.leadingButton = leadingButton
         self.trailingButton = trailingButton
-        self.footerButton = footerButton
         self.message = message
         self.title = title
     }
@@ -57,10 +57,11 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
         public let animation: Animation
         
         public enum Animation: Equatable {
-            case inherited
-            case explicit(SwiftUI.Animation?)
+            case inherited                    /// 부모로부터 애니메이션을 받았을 때
+            case explicit(SwiftUI.Animation?) /// 명시적으로 애니메이션을 지정하고 싶을 때
         }
         
+        /// 명시적 지정 initalizer
         public init(
             action: Action,
             animation: SwiftUI.Animation?
@@ -68,7 +69,7 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
             self.action = action
             self.animation = .explicit(animation)
         }
-        
+        /// 애니메이션 상속 initalizer
         public init(action: Action) {
             self.action = action
             self.animation = .inherited
