@@ -8,13 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		7A1EFE032D07D8390008D2E4 /* TCAAlertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE022D07D8390008D2E4 /* TCAAlertApp.swift */; };
-		7A1EFE052D07D8390008D2E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE042D07D8390008D2E4 /* ContentView.swift */; };
+		7A1EFE052D07D8390008D2E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE042D07D8390008D2E4 /* HomeView.swift */; };
 		7A1EFE072D07D83A0008D2E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EFE062D07D83A0008D2E4 /* Assets.xcassets */; };
 		7A1EFE0A2D07D83A0008D2E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1EFE092D07D83A0008D2E4 /* Preview Assets.xcassets */; };
 		7A1EFE142D07D83A0008D2E4 /* TCAAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE132D07D83A0008D2E4 /* TCAAlertTests.swift */; };
 		7A1EFE1E2D07D83A0008D2E4 /* TCAAlertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE1D2D07D83A0008D2E4 /* TCAAlertUITests.swift */; };
 		7A1EFE202D07D83B0008D2E4 /* TCAAlertUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE1F2D07D83B0008D2E4 /* TCAAlertUITestsLaunchTests.swift */; };
 		7A1EFE2E2D07D9010008D2E4 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7A1EFE2D2D07D9010008D2E4 /* ComposableArchitecture */; };
+		7A1EFE312D07D9DE0008D2E4 /* PopupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE302D07D9DE0008D2E4 /* PopupAlert.swift */; };
+		7A1EFE332D07D9EC0008D2E4 /* PopupAlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE322D07D9EC0008D2E4 /* PopupAlertState.swift */; };
+		7A1EFE352D07DA0F0008D2E4 /* PopupAlertState+convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE342D07DA0F0008D2E4 /* PopupAlertState+convert.swift */; };
+		7A1EFE372D07DA260008D2E4 /* View+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE362D07DA260008D2E4 /* View+alert.swift */; };
+		7A1EFE392D07DC790008D2E4 /* PopupAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE382D07DC790008D2E4 /* PopupAlertModifier.swift */; };
+		7A1EFE3B2D07E05F0008D2E4 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1EFE3A2D07E05F0008D2E4 /* HomeFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +43,7 @@
 /* Begin PBXFileReference section */
 		7A1EFDFF2D07D8390008D2E4 /* TCAAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1EFE022D07D8390008D2E4 /* TCAAlertApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAAlertApp.swift; sourceTree = "<group>"; };
-		7A1EFE042D07D8390008D2E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7A1EFE042D07D8390008D2E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7A1EFE062D07D83A0008D2E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A1EFE092D07D83A0008D2E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7A1EFE0F2D07D83A0008D2E4 /* TCAAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +51,12 @@
 		7A1EFE192D07D83A0008D2E4 /* TCAAlertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAAlertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1EFE1D2D07D83A0008D2E4 /* TCAAlertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAAlertUITests.swift; sourceTree = "<group>"; };
 		7A1EFE1F2D07D83B0008D2E4 /* TCAAlertUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAAlertUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A1EFE302D07D9DE0008D2E4 /* PopupAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlert.swift; sourceTree = "<group>"; };
+		7A1EFE322D07D9EC0008D2E4 /* PopupAlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlertState.swift; sourceTree = "<group>"; };
+		7A1EFE342D07DA0F0008D2E4 /* PopupAlertState+convert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopupAlertState+convert.swift"; sourceTree = "<group>"; };
+		7A1EFE362D07DA260008D2E4 /* View+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+alert.swift"; sourceTree = "<group>"; };
+		7A1EFE382D07DC790008D2E4 /* PopupAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlertModifier.swift; sourceTree = "<group>"; };
+		7A1EFE3A2D07E05F0008D2E4 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +110,8 @@
 			children = (
 				7A1EFE2F2D07D9210008D2E4 /* Popup */,
 				7A1EFE022D07D8390008D2E4 /* TCAAlertApp.swift */,
-				7A1EFE042D07D8390008D2E4 /* ContentView.swift */,
+				7A1EFE042D07D8390008D2E4 /* HomeView.swift */,
+				7A1EFE3A2D07E05F0008D2E4 /* HomeFeature.swift */,
 				7A1EFE062D07D83A0008D2E4 /* Assets.xcassets */,
 				7A1EFE082D07D83A0008D2E4 /* Preview Content */,
 			);
@@ -133,6 +146,11 @@
 		7A1EFE2F2D07D9210008D2E4 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				7A1EFE302D07D9DE0008D2E4 /* PopupAlert.swift */,
+				7A1EFE322D07D9EC0008D2E4 /* PopupAlertState.swift */,
+				7A1EFE342D07DA0F0008D2E4 /* PopupAlertState+convert.swift */,
+				7A1EFE362D07DA260008D2E4 /* View+alert.swift */,
+				7A1EFE382D07DC790008D2E4 /* PopupAlertModifier.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -273,8 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A1EFE052D07D8390008D2E4 /* ContentView.swift in Sources */,
+				7A1EFE052D07D8390008D2E4 /* HomeView.swift in Sources */,
+				7A1EFE3B2D07E05F0008D2E4 /* HomeFeature.swift in Sources */,
+				7A1EFE332D07D9EC0008D2E4 /* PopupAlertState.swift in Sources */,
+				7A1EFE392D07DC790008D2E4 /* PopupAlertModifier.swift in Sources */,
+				7A1EFE352D07DA0F0008D2E4 /* PopupAlertState+convert.swift in Sources */,
+				7A1EFE312D07D9DE0008D2E4 /* PopupAlert.swift in Sources */,
 				7A1EFE032D07D8390008D2E4 /* TCAAlertApp.swift in Sources */,
+				7A1EFE372D07DA260008D2E4 /* View+alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

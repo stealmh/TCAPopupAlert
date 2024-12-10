@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TCAAlertApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(store: Store(initialState: .init(), reducer: { HomeFeature() }))
         }
     }
 }
