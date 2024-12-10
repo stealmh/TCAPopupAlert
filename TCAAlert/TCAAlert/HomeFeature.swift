@@ -11,8 +11,8 @@ import ComposableArchitecture
 struct HomeFeature {
     @ObservableState
     struct State: Equatable {
-        @Presents var alert: PopupAlertState<Alert2>?
-        @Presents var remindAlert: PopupAlertState<Alert2>? /// one Button
+        @Presents var alert: PopupAlertState<Action.Alert>?
+        @Presents var remindAlert: PopupAlertState<Action.Alert>? /// one Button
     }
     
     enum Alert2: Equatable {
