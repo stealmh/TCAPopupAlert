@@ -17,8 +17,8 @@ struct HomeView: View {
                 Text("팝업 보기")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .alert($store.scope(state: \.alert, action: \.alert))
-        .alert($store.scope(state: \.remindAlert, action: \.alert))
+        .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
+        .alert($store.scope(state: \.destination?.remindAlert, action: \.destination.remindAlert))
     }
 }
 

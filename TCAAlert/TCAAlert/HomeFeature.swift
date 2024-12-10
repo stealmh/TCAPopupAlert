@@ -11,35 +11,16 @@ import ComposableArchitecture
 struct HomeFeature {
     @ObservableState
     struct State: Equatable {
-        @Presents var alert: PopupAlertState<Action.Alert>?
-        @Presents var remindAlert: PopupAlertState<Action.Alert>? /// one Button
+        @Presents var destination: Destination.State?
     }
     
-    enum Alert2: Equatable {
-        /// alert
-        case okButtonTapped
-        case cancelButtonTapped
-        case popupChange
-        /// remind Alert
-        case remindOkButtonTapped
-    }
-    
-    enum Action: ViewAction, Equatable {
+    enum Action: ViewAction {
         case view(View)
-        case alert(PresentationAction<Alert>)
+        case destination(PresentationAction<Destination.Action>)
         
         enum View: BindableAction, Equatable {
             case binding(BindingAction<State>)
             case buttonTapped
-        }
-        
-        enum Alert: Equatable {
-            /// alert
-            case okButtonTapped
-            case cancelButtonTapped
-            case popupChange
-            /// remind Alert
-            case remindOkButtonTapped
         }
     }
     
@@ -50,12 +31,11 @@ struct HomeFeature {
             case let .view(action):
                 return viewAction(action, state: &state)
                 
-            case let .alert(action):
-                return alertAction(action, state: &state)
+            case let .destination(action):
+                return destinationAction(action, state: &state)
             }
         }
-        .ifLet(\.$alert, action: \.alert)
-        .ifLet(\.$remindAlert, action: \.alert)
+        .ifLet(\.$destination, action: \.destination)
         ._printChanges()
     }
 }
@@ -67,60 +47,42 @@ extension HomeFeature {
             return .none
             
         case .buttonTapped:
-            state.alert = .init(
-                title: TextState("첫번째 알림"),
-                message: TextState("두번째 알림을 확인하시겠습니까?"),
-                leadingButton: .init(
-                    title: TextState("네"),
-                    action: .init(action: .okButtonTapped)
-                ),
-                trailingButton: .init(
-                    title: TextState("아니요"),
-                    action: .init(action: .cancelButtonTapped)
+            state.destination = .alert(
+                .init(
+                    title: TextState("첫번째 알림"),
+                    message: TextState("두번째 알림을 확인하시겠습니까?"),
+                    leadingButton: .init(
+                        title: TextState("네"),
+                        action: .init(action: .okButtonTapped)
+                    ),
+                    trailingButton: .init(
+                        title: TextState("아니요"),
+                        action: .init(action: .cancelButtonTapped)
+                    )
                 )
             )
             return .none
         }
     }
     
-    func alertAction(_ action: PresentationAction<Action.Alert>, state: inout State) -> Effect<Action> {
+    func destinationAction(_ action: PresentationAction<HomeFeature.Destination.Action>, state: inout State) -> Effect<Action> {
         switch action {
-        case .presented(.okButtonTapped):
-            print("hello")
-//            state.remindAlert = .init(
-//                message: TextState("두번째 알림이에요."),
-//                footerButton: .init(
-//                    title: TextState("확인"),
-//                    action: .init(action: .remindOkButtonTapped)
-//                )
-//            )
-            //            state.alert = .init(
-            //                message: TextState("두번째 알림이에요."),
-            //                footerButton: .init(
-            //                    title: TextState("확인"),
-            //                    action: .init(action: .remindOkButtonTapped)
-            //                )
-            //            )
-//            return .run { send in
-//                await send(.alert(.presented(.popupChange)), animation: .spring)
-//            }
-            return .none
-            
-        case .presented(.popupChange):
-            state.remindAlert = .init(
-                message: TextState("두번째 알림이에요."),
-                footerButton: .init(
-                    title: TextState("확인"),
-                    action: .init(action: .remindOkButtonTapped)
+        case .presented(.alert(.okButtonTapped)):
+            state.destination = .remindAlert(
+                .init(
+                    message: TextState("두번째 알림입니다"),
+                    footerButton: .init(
+                        title: TextState("확인"),
+                        action: .init(action: .remindOkButtonTapped)
+                    )
                 )
             )
-            
             return .none
             
-        case .presented(.cancelButtonTapped):
+        case .presented(.alert(.cancelButtonTapped)):
             return .none
             
-        case .presented(.remindOkButtonTapped):
+        case .presented(.alert(.remindOkButtonTapped)):
             return .none
             
         case .presented, .dismiss:
@@ -133,7 +95,17 @@ extension HomeFeature {
     @Reducer(state: .equatable)
     enum Destination {
         @ReducerCaseEphemeral
-        case alert(PopupAlertState<Alert2>)
-        case remindAlert
+        case alert(PopupAlertState<Alert>)
+        @ReducerCaseEphemeral
+        case remindAlert(PopupAlertState<Alert>)
+    }
+    
+    enum Alert: Equatable {
+        /// alert
+        case okButtonTapped
+        case cancelButtonTapped
+        case popupChange
+        /// remind Alert
+        case remindOkButtonTapped
     }
 }
