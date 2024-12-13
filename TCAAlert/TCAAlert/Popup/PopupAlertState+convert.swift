@@ -16,7 +16,8 @@ extension PopupAlertState {
         .init(
             title: self.title.map { Text($0) },
             message: self.message.map { Text($0) },
-            footerButton: self.footerButton.map { $0.converted(send: send, animation: animation) }
+            footerButton: self.footerButton.map { $0.converted(send: send, animation: animation) },
+            isBackgroundDismissable: self.isBackgroundDismissable
         )
     }
     /// - `leadingButton`, `trailingButton`이 존재할 때
@@ -28,7 +29,8 @@ extension PopupAlertState {
             title: self.title.map { Text($0) },
             message: self.message.map { Text($0) },
             leadingButton: self.leadingButton.map { $0.converted(send: send, animation: animation) },
-            trailingButton: self.trailingButton.map { $0.converted(send: send, animation: animation) }
+            trailingButton: self.trailingButton.map { $0.converted(send: send, animation: animation) },
+            isBackgroundDismissable: self.isBackgroundDismissable
         )
     }
     

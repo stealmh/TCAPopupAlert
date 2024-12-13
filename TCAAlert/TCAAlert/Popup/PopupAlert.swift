@@ -25,6 +25,7 @@ public struct PopupAlert {
     public var leadingButton: Button?
     public var trailingButton: Button?
     public var footerButton: Button?
+    public var isBackgroundDismissable: Bool
     
     /// - `button`이 `2개`일 때 사용하는 initalizer
     /// - footerButton => nil
@@ -32,26 +33,30 @@ public struct PopupAlert {
         title: Text? = nil,
         message: Text? = nil,
         leadingButton: Button? = nil,
-        trailingButton: Button? = nil
+        trailingButton: Button? = nil,
+        isBackgroundDismissable: Bool = true
     ) {
         self.title = title
         self.message = message
         self.leadingButton = leadingButton
         self.trailingButton = trailingButton
         self.footerButton = nil
+        self.isBackgroundDismissable = isBackgroundDismissable
     }
     /// - `button`이 `1개`일 때 사용하는 initalizer
     /// - leadingButton, trailing Button => nil
     public init(
         title: Text? = nil,
         message: Text? = nil,
-        footerButton: Button? = nil
+        footerButton: Button? = nil,
+        isBackgroundDismissable: Bool = true
     ) {
         self.title = title
         self.message = message
         self.leadingButton = nil
         self.trailingButton = nil
         self.footerButton = footerButton
+        self.isBackgroundDismissable = isBackgroundDismissable
     }
     /// Button 구성
     public struct Button: Identifiable {

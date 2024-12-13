@@ -15,28 +15,33 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
     public var leadingButton: Button?
     public var trailingButton: Button?
     public var footerButton: Button?
+    public var isBackgroundDismissable: Bool
     
     /// - `button`이 `1개`일 때 사용하는 initalizer
     public init(
         title: TextState? = nil,
         message: TextState? = nil,
-        footerButton: Button? = nil
+        footerButton: Button? = nil,
+        isBackgroundDismissable: Bool = true
     ) {
         self.footerButton = footerButton
         self.message = message
         self.title = title
+        self.isBackgroundDismissable = isBackgroundDismissable
     }
     /// - `button`이 `2개`일 때 사용하는 initalizer
     public init(
         title: TextState? = nil,
         message: TextState? = nil,
         leadingButton: Button? = nil,
-        trailingButton: Button? = nil
+        trailingButton: Button? = nil,
+        isBackgroundDismissable: Bool = true
     ) {
         self.leadingButton = leadingButton
         self.trailingButton = trailingButton
         self.message = message
         self.title = title
+        self.isBackgroundDismissable = isBackgroundDismissable
     }
     
     public struct Button: Equatable {
@@ -57,7 +62,7 @@ public struct PopupAlertState<Action: Equatable>: Equatable {
         public let animation: Animation
         
         public enum Animation: Equatable {
-            case inherited                    /// 부모로부터 애니메이션을 받았을 때
+            case inherited                    /// 부모의 애니메이션을 따라가고 싶을 때
             case explicit(SwiftUI.Animation?) /// 명시적으로 애니메이션을 지정하고 싶을 때
         }
         
