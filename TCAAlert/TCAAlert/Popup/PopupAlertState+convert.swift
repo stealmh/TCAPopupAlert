@@ -33,7 +33,7 @@ extension PopupAlertState {
             isBackgroundDismissable: self.isBackgroundDismissable
         )
     }
-    
+    /// - 버튼이 없을 때
     public func noButtonConverted(
         send: @escaping (Action) -> Void,
         animation: @escaping (Action, Animation?) -> Void
