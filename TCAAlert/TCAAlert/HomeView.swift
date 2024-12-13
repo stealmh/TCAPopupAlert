@@ -13,8 +13,13 @@ struct HomeView: View {
     @Bindable var store: StoreOf<HomeFeature>
     
     var body: some View {
-        Button(action: { send(.buttonTapped) }) {
-                Text("팝업 보기")
+        VStack {
+            /// TCA를 사용하지 않은 팝업
+            TestView()
+            /// TCA를 사용한 팝업
+            Button(action: { send(.buttonTapped) }) {
+                    Text("TCA 팝업 보기")
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
