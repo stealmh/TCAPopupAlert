@@ -20,8 +20,8 @@ import SwiftUI
  ----------------------
 */
 public struct PopupAlert {
-    public var message: Text?
     public var title: Text?
+    public var message: Text?
     public var leadingButton: Button?
     public var trailingButton: Button?
     public var footerButton: Button?
