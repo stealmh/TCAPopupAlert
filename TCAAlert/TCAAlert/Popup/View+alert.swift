@@ -25,7 +25,7 @@ extension View {
                     }
                     /// case 2) leadingButton, trailingButton이 있을 때
                     else if let _ = state?.leadingButton,
-                              let _ = state?.trailingButton {
+                            let _ = state?.trailingButton {
                         state?.twoButtonConverted(send: { store?.send($0) }, animation: { store?.send($0, animation: $1) })
                     }
                     /// case 3) 아무 버튼도 없을 때
