@@ -4,7 +4,7 @@
 https://github.com/pointfreeco/isowords
 
 이를 토대로 편하게 가지고 놀 수 있는 데모 앱을 만들었습니다.
-![Simulator Screen Recording - iPhone 15 Pro - 2024-12-13 at 17 53 24](https://github.com/user-attachments/assets/a9411a45-813e-4efc-a681-02405b04da0d)
+
 
 ## 사용법
 TCA를 의존하지 않더라도 기본적으로 사용할 수 있습니다.
