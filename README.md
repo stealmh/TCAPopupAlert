@@ -19,11 +19,13 @@ public struct PopupAlert {
     public var isBackgroundDismissable: Bool
 }
 ```
-`title`: Alert의 좌측 상단에 위치한 `Text`입니다.
-`message`: Alert 중앙에 위치한 `Text`입니다.
-`leadingButton`, `trailingButton`: 각각 Alert의 하단에 위치하며, 좌측과 우측을 담당하는 `Button`입니다.
-`footerButton`: Alert의 하단에 위치하는 `Button`입니다.
-`isBackgroundDismissable`: Alert 외부 영역을 터치해 Alert을 사라지게 할 수 있는지 여부를 제어하기 위한`Flag`입니다.
+`title`: Alert의 좌측 상단에 위치한 `Text`입니다. <br>
+`message`: Alert 중앙에 위치한 `Text`입니다. <br>
+`leadingButton`, `trailingButton`: 각각 Alert의 하단에 위치하며, 좌측과 우측을 담당하는 `Button`입니다. <br>
+`footerButton`: Alert의 하단에 위치하는 `Button`입니다. <br>
+`isBackgroundDismissable`: Alert 외부 영역을 터치해 Alert을 사라지게 할 수 있는지 여부를 제어하기 위한`Flag`입니다. <br>
+
+<br>
 
 Alert은 일반적으로 하단 버튼이 1개 또는 2개로 구성됩니다.
 생성자를 달리하여 `footerButton` 또는 `leadingButton`과 `trailingButton`을 구성할 수 있습니다. 
@@ -46,9 +48,10 @@ public init(
     self.isBackgroundDismissable = isBackgroundDismissable
 }
 ```
-다음과 같은 생성자를 사용할 수 있습니다.
-그럼에도 버튼 값을 받을 수 있게 구성한 이유는 Alert에는 Button이 없는 형태 또한 존재하기 때문입니다.
 <br>
+다음과 같은 생성자를 사용할 수 있습니다.
+그럼에도 버튼 값을 받을 수 있게 구성한 이유는 Alert에는 Button이 없는 형태 또한 존재하기 때문입니다. <br>
+
 >버튼을 1개로 설정하고 싶다면
 ```swift
 public init(
@@ -67,6 +70,7 @@ public init(
 ```
 `footerButton`만 있는 생성자를 사용하면 됩니다.
 <br>
+
 이후 View Extension을 통해 ViewModifier를 만들어준 후 사용하게 됩니다.
 ```swift
 extension View {
@@ -98,10 +102,10 @@ struct HomeView {
 }
 ```
 <br>
-<br>
-
 그렇다면 TCA에서 사용하기 위해선 어떤 과정이 필요할까요?
 PopupAlertState를 만드는 것에서 부터 시작합니다.
+<br>
+
 ```swift
 public struct PopupAlertState<Action: Equatable>: Equatable {
     public var message: TextState?
