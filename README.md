@@ -5,6 +5,12 @@ https://github.com/pointfreeco/isowords
 
 이를 토대로 편하게 가지고 놀 수 있는 데모 앱을 만들었습니다.
 
+## 실행결과
+
+|<img src="https://github.com/user-attachments/assets/c1127815-ee9a-4b67-bc0e-d733bc1e8a27" width="300"></img>|<img src="https://github.com/user-attachments/assets/a9411a45-813e-4efc-a681-02405b04da0d" width="300"></img>|
+|:-:|:-:|
+|`TCA+PopupAlert`| `PopupAlert` |
+
 
 ## 사용법
 TCA를 의존하지 않더라도 기본적으로 사용할 수 있습니다.
@@ -349,10 +355,3 @@ case .presented(.alert(.okButtonTapped)):
 return .none
 ```
 Destination이 열거형이기 때문에 자연스럽게 화면 전환이 이뤄질 수 있습니다.
-
-
-## 실행결과
-
-|<img src="https://github.com/user-attachments/assets/c1127815-ee9a-4b67-bc0e-d733bc1e8a27" width="300"></img>|<img src="https://github.com/user-attachments/assets/a9411a45-813e-4efc-a681-02405b04da0d" width="300"></img>|
-|:-:|:-:|
-|`TCA+PopupAlert`| `PopupAlert` |
